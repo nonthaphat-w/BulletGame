@@ -34,18 +34,17 @@ public class BulletGame extends BasicGame{
 	    }
 	  }
 
-	 @Override
+	  @Override
 	  public void init(GameContainer container) throws SlickException {
-	    entities.add(new Bullet(200,0));
+	    entities.add(new DirectionalBullet(320,240,70,10));
 	  }
-
 	 
 	public static void main(String[] args) {
 	    try {   	
 	    	BulletGame game = new BulletGame("BulletGame");
 	        AppGameContainer container = new AppGameContainer(game);
 	      container.setDisplayMode(640, 480, false);
-	      container.setMinimumLogicUpdateInterval(1000 / 40);
+	      container.setMinimumLogicUpdateInterval(1000 / 60);
 	      container.start();
 	    } catch (SlickException e) {
 	      e.printStackTrace();
