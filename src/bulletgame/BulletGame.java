@@ -37,6 +37,7 @@ public class BulletGame extends BasicGame{
 	  @Override
 	  public void init(GameContainer container) throws SlickException {
 	    entities.add(new DirectionalBullet(320,240,70,10));
+	    entities.add(new SinceBullet(320,240,70,10));
 	  }
 	 
 	public static void main(String[] args) {
@@ -44,7 +45,7 @@ public class BulletGame extends BasicGame{
 	    	BulletGame game = new BulletGame("BulletGame");
 	        AppGameContainer container = new AppGameContainer(game);
 	      container.setDisplayMode(640, 480, false);
-	      container.setMinimumLogicUpdateInterval(1000 / 60);
+	      container.setMinimumLogicUpdateInterval(1000 / 30);
 	      container.start();
 	    } catch (SlickException e) {
 	      e.printStackTrace();

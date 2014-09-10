@@ -1,9 +1,19 @@
 package bulletgame;
 
 public class DirectionalBullet extends Bullet {
-	  private float dir;
-	  private float velocity;
-	 
+	  protected float dir;
+	  protected float velocity;
+	  private float trackX;
+	  private float trackY;
+	  
+	  protected float getTrackX() {
+		    return trackX;
+		  }
+		 
+		  protected float getTrackY() {
+		    return trackY;
+		  }
+		  
 	  public DirectionalBullet(float x, float y, float dir, float velocity) {
 	    super(x, y);
 	    this.dir = dir;
@@ -21,7 +31,7 @@ public class DirectionalBullet extends Bullet {
 	  public void update(int delta) {
 		  x += (float)((Math.cos(Math.PI*dir/180))*velocity);
 		  y -= (float)((Math.sin(Math.PI*dir/180))*velocity);
-		  
+		
 		  
 	}
 	  
