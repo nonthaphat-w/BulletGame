@@ -18,6 +18,8 @@ public class DirectionalBullet extends Bullet {
 	    super(x, y);
 	    this.dir = dir;
 	    this.velocity = velocity;
+	    trackX = x;
+	    trackY = y;
 	  }
 	 
 	  public float getVelocity() {
@@ -27,12 +29,18 @@ public class DirectionalBullet extends Bullet {
 	  public float getDir() {
 	    return dir;
 	  }
-	  
+	
 	  public void update(int delta) {
-		  x += (float)((Math.cos(Math.PI*dir/180))*velocity);
-		  y -= (float)((Math.sin(Math.PI*dir/180))*velocity);
+		    updateTrack();
+		    updatePosition(delta);
+		  }
+		 
+	   protected void updatePosition(int delta) {
+		    setXY(trackX, trackY);
+	      }
 		
-		  
-	}
-	  
-	}
+		private void updateTrack() {
+		    trackX += velocity * (float)(Math.cos(Math.PI*dir/180));
+		    trackY -= velocity * (float)(Math.sin(Math.PI*dir/180));;
+		  }
+}

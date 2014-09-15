@@ -33,12 +33,15 @@ public class BulletGame extends BasicGame{
 	      entity.update(delta);
 	    }
 	  }
-
+	  
 	  @Override
 	  public void init(GameContainer container) throws SlickException {
-	    entities.add(new DirectionalBullet(320,240,70,10));
-	    entities.add(new SinceBullet(320,240,70,10));
-	  }
+		//entities.add(new SineBullet(320,240,0,10));
+		  //entities.add(new DirectionalBullet(320,240,0,10));
+		    entities.add(new StarBullet(320,240,5, new DirectionalBulletFactory()));
+		  entities.add(new StarBullet(420,140,4, new SineBulletFactory()));
+		   entities.add(new StarBullet(220,340,7, new RandomDirectionalBulletFactory()));
+		  }
 	 
 	public static void main(String[] args) {
 	    try {   	
